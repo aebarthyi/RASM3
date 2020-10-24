@@ -20,8 +20,8 @@ loop:
     ldrb    r3, [r0, r2]        @ load character pointed to by r0
     cmp     r1, r3              @ compare character to character passed by user
     beq     exit                @ go to end and return size 
-    cmp     r3, #0		        @ compare to find null termination
-    beq	    exitNoSln		    @ go to no findings exit branch
+    cmp     r3, #0		@ compare to find null termination
+    beq	    exitNoSln		@ go to no findings exit branch
     add     r2, #1              @ increment r2 by 1 
     b       loop                @ back to loop
     
@@ -37,6 +37,6 @@ exitNoSln:
 
     pop	{sp}                    @ pop stack pointer
     pop	{r4-r8, r10, r11}       @ pop the preserved regiesters for aapcs
-    bx      lr    		        @ back to the main where it is called
+    bx      lr    		@ back to the main where it is called
 
     .end
