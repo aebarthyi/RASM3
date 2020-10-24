@@ -20,8 +20,8 @@ String_lastIndexOf:
     
 loopRev:
     ldrb    r3, [r0, r2]        @ load character pointed to by r0
-    cmp     r3, #0	            @ compare to find null termination
-    beq	    loop		        @ go to main loop
+    cmp     r3, #0	        @ compare to find null termination
+    beq	    loop		@ go to main loop
     add     r2, #1              @ increment r2 by 1 
     b       loopRev             @ back to loop
     
@@ -39,13 +39,13 @@ exit:
     
     pop	{sp}                    @ pop stack pointer
     pop	{r4-r8, r10, r11}       @ pop the preserved regiesters for aapcs
-    bx      lr    		        @ back to the main where it is called
+    bx      lr    		@ back to the main where it is called
 
 exitNoSln:
-    mov     r0, #-1		        @ move -1 into ouput register for no found index error
+    mov     r0, #-1		@ move -1 into ouput register for no found index error
 
     pop	{sp}                    @ pop stack pointer
     pop	{r4-r8, r10, r11}       @ pop the preserved regiesters for aapcs
-    bx      lr    	            @ back to the main where it is called
+    bx      lr    	        @ back to the main where it is called
 
     .end
