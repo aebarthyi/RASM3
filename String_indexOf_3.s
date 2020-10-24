@@ -24,15 +24,15 @@ loop:
     ldrb    r5, [r1, r4]        @ load character pointed to by r1
     cmp     r5, r3              @ compare character to character passed by user
     beq     firstFound          @ if first character is found jump to first found loop
-    cmp     r3, #0		        @ compare to find null termination
-    beq	    exitNoSln		    @ go to no findings exit branch
+    cmp     r3, #0	        @ compare to find null termination
+    beq	    exitNoSln		@ go to no findings exit branch
     add     r2, #1              @ increment r2 by 1 
     mov     r6, r2              @ set index storage
     b       loop                @ back to loop
 
 firstFound:
-    add     r2, #1              @
-    add     r4, #1              @
+    add     r2, #1              @ increment the string pointer by 1
+    add     r4, #1              @ increment the string pointer by 1
     ldrb    r3, [r0, r2]        @ load character pointed to by r0
     ldrb    r5, [r1, r4]        @ load character pointed to by r1
     cmp     r5, #0              @ check if second string is over
