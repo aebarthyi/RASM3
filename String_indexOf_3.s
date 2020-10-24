@@ -46,13 +46,13 @@ exit:
     
     pop	{sp}                    @ pop stack pointer
     pop	{r4-r8, r10, r11}       @ pop the preserved regiesters for aapcs
-    bx      lr    		        @ back to the main where it is called
+    bx      lr    		@ back to the main where it is called
 
 exitNoSln:
-    mov     r0, #-1		        @ move -1 into ouput register for no found index error
+    mov     r0, #-1		@ move -1 into ouput register for no found index error
 
     pop	{sp}                    @ pop stack pointer
     pop	{r4-r8, r10, r11}       @ pop the preserved regiesters for aapcs
-    bx      lr    		        @ back to the main where it is called
+    bx      lr    		@ back to the main where it is called
 
     .end
