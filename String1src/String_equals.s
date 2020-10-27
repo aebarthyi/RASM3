@@ -30,7 +30,7 @@ String_equals:
 
 compare:
 	cmp	r2, #0		@comparing if remaning length is 0
-	beq	true		@branches to true if length == 0
+	blt	true		@branches to true if length == 0
 
 	ldrb	r0, [r4, r2]	@loading the character at address r4 + r2 into r0
 	ldrb	r1, [r5, r2]	@loading the character at address r5 + r2 into r1
