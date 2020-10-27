@@ -59,13 +59,41 @@ szMsg9.2: .asciz "   The character at index 4: "		@output for prompt #9
 
 szMsg10.1: .asciz "10. Calling Starts with to check string 1\n" @output for prompt #10
 szMsg10.2: .asciz "    Checking 'hat.' at index 12: "		@output for prompt #10
-szMsg10.3: .asciz "hat."			   @the string to check for prompt #10
+szMsg10.3: .asciz "hat."			    @the string to check for prompt #10
 
-szMsg11.1: .asciz "11. Checking if string 1 starts with 'Cat': "@output for prompt #11
-szMsg11.2: .asciz "Cat"			   	   @the string to check for prompt #11
+szMsg11.1: .asciz "11. Checking if string 1 starts with 'Cat': " @output for prompt #11
+szMsg11.2: .asciz "Cat"			   	    @the string to check for prompt #11
 
-szMsg12.1: .asciz "12. Checking if string 1 ends with 'in the hat.': "@output for prompt #12
-szMsg12.2: .asciz "in the hat."			   	 @the string to check for prompt #12
+szMsg12.1: .asciz "12. Checking if string 1 ends with 'in the hat.': " @output for prompt #12
+szMsg12.2: .asciz "in the hat."			@the string to check for prompt #12
+
+szMsg13.1: .asciz "13. Looking for first instance of character 'g':\n" @output for prompt #13
+szMsg13.2: .asciz "Index: " 			@output for prompt #13
+
+szMsg14.1: .asciz "14. Looking for first instance of character 'g' after index 9:\n" @output for prompt #14
+szMsg14.2: .asciz "Index: " 			@output for prompt #14
+
+szMsg15.1: .asciz "15. Looking for first instance of string \"eggs\"\n" @output for prompt #15
+szMsg15.2: .asciz "eggs"				@ string to look for in prompt #15
+szMsg15.3: .asciz "Index: " 			@output for prompt #15
+
+szMsg16.1: .asciz "16. Looking for last instance of character 'g':\n" @output for prompt #16
+szMsg16.2: .asciz "Index: " 			@output for prompt #16
+
+szMsg17.1: .asciz "17. Looking for last instance of character 'g' after index 6:\n" @output for prompt #17
+szMsg17.2: .asciz "Index: " 			@output for prompt #17
+
+szMsg18.1: .asciz "18. Looking for last instance of string \"eggs\"\n" @output for prompt #18
+szMsg18.2: .asciz "Index: " 			@output for prompt #18
+
+szMsg19.1: .asciz "19. Replacing all instances of 'a' with 'o':\n" @output for prompt #19
+szMsg19.2: .asciz "String: "			@output for prompt #19
+
+szMsg20.1: .asciz "20. Converting string to lowercase:\n" @output for prompt #20
+
+szMsg21.1: .asciz "21. Converting string to uppercase:\n" @output for prompt #21
+
+szMsg22.1: .asciz "22. Concatonating string with \" \" and previous output:" @output for prompt #22
 
 crCr: .byte 10			@byte nuber for carrage return
 																			@ empty string for output
@@ -113,7 +141,7 @@ main:
 	bl	putch		@call putstring (external fn) to print the character 'carriage return'
 	
 @*********************************@
-@	  PROMPT NUMBER 1         @
+@	  PROMPT NUMBER 1         	  @
 @*********************************@
 
 @----------1.1------------@
