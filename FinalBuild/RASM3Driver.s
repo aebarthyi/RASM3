@@ -617,7 +617,7 @@ end12:
 	mov r1, #103 @move 'g' into r0 for the functions
 	mov r0, r7 @move string 2 into r0 for functions
 
-	bl	String_lastIndexOf_1	@call external function to find last index of g
+	bl	String_lastIndexOf	@call external function to find last index of g
 
 	ldr	r1, =szEmp	@load empty string to call intasc32
 	bl	intasc32	@convert index to strings
