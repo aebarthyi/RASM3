@@ -1,0 +1,2 @@
+all: String_concat.o String_indexOf_1.o String_indexOf_2.o String_indexOf_3.o String_lastIndexOf_1.o String_lastIndexOf_2.o String_lastIndexOf_3.o String_Length.o String_replace.o String_toLowerCase.o String_toUpperCase.o
+	ar rcs String2.a String_concat.o String_indexOf_1.o String_indexOf_2.o String_indexOf_3.o String_lastIndexOf_1.o String_lastIndexOf_2.o String_lastIndexOf_3.o String_Length.o String_replace.o String_toLowerCase.o String_toUpperCase.o
