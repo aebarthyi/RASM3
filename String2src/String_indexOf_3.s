@@ -39,6 +39,7 @@ firstFound:
     cmp     r5, #0              @ check if second string is over
     beq     exit                @ if second string finished then exit
     cmp     r3, r5              @ check if character found matches
+    addne   r2, #1              @ increment original string pointer for next loop iteration
     bne     loop                @ go back to loop if not found
     b       firstFound          @ back to firstFound loop
     
