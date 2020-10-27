@@ -570,10 +570,13 @@ end12:
 	mov r1, #103 @move 'g' into r0 for the functions
 	mov r0, r7 @move string 2 into r0 for functions
 
+	bl String_indexOf_2	@call external function to find the index of g after index 9
+
 	ldr	r1, =szEmp	@load empty string to call intasc32
 	bl	intasc32	@convert index to strings
 	mov r0, r1	@move converted string to r0 for display
-	bl String_indexOf_2	@call external function to find the index of g after index 9
+	bl	putstring	@call putstring (external fn) to print the function output
+
 	ldr	r0, =crCr	@load into r0 address of crCr
 	bl	putch		@call putstring (external fn) to print the character 'carriage return
 
@@ -583,6 +586,28 @@ end12:
 	@*********************************@
 	@	  PROMPT NUMBER 15        @
 	@*********************************@
+
+	ldr	r0, =szMsg15.1	@load into r0 address of szMsg15.1
+	bl	putstring	@call putstring (external fn) to print szMsg15.1
+
+	ldr r0, =szMsg15.3 	@Load into r0 address of szMsg15.2
+	bl	putstring	@call putstring (external fn) to print szMsg15.2
+
+	mov r0, r7	@move our input to r0 for functions
+	ldr r1, =szMsg15.2 @load our test case into r1 for functions
+
+	bl	String_indexOf_3	@use external function to find the index of eggs
+
+	ldr	r1, =szEmp	@load empty string to call intasc32
+	bl	intasc32	@convert index to strings
+	mov r0, r1	@move converted string to r0 for display
+	bl	putstring	@call putstring (external fn) to print the function output
+
+	ldr	r0, =crCr	@load into r0 address of crCr
+	bl	putch		@call putstring (external fn) to print the character 'carriage return
+
+	ldr	r0, =crCr	@load into r0 address of crCr
+	bl	putch		@call putstring (external fn) to print the character 'carriage return'
 
 	mov 	r0, #0 		@ set exit status to 0
 	mov 	r7, #1		@ service command code to 1
