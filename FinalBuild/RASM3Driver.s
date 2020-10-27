@@ -68,26 +68,21 @@ szMsg12.1: .asciz "12. Checking if string 1 ends with 'in the hat.': " @output f
 szMsg12.2: .asciz "in the hat."			@the string to check for prompt #12
 
 szMsg13.1: .asciz "13. Looking for first instance of character 'g':\n" @output for prompt #13
-szMsg13.2: .asciz "Index: " 			@output for prompt #13
+szMsg13.2: .asciz "Index: " 			@output for prompt #13 - 18
 
 szMsg14.1: .asciz "14. Looking for first instance of character 'g' after index 9:\n" @output for prompt #14
-szMsg14.2: .asciz "Index: " 			@output for prompt #14
 
 szMsg15.1: .asciz "15. Looking for first instance of string \"eggs\"\n" @output for prompt #15
 szMsg15.2: .asciz "eggs"				@ string to look for in prompt #15
-szMsg15.3: .asciz "Index: " 			@output for prompt #15
 
 szMsg16.1: .asciz "16. Looking for last instance of character 'g':\n" @output for prompt #16
-szMsg16.2: .asciz "Index: " 			@output for prompt #16
 
 szMsg17.1: .asciz "17. Looking for last instance of character 'g' after index 6:\n" @output for prompt #17
-szMsg17.2: .asciz "Index: " 			@output for prompt #17
 
 szMsg18.1: .asciz "18. Looking for last instance of string \"eggs\"\n" @output for prompt #18
-szMsg18.2: .asciz "Index: " 			@output for prompt #18
 
 szMsg19.1: .asciz "19. Replacing all instances of 'a' with 'o':\n" @output for prompt #19
-szMsg19.2: .asciz "String: "			@output for prompt #19
+szMsg19.2: .asciz "String: "			@output for prompt #19 - 22
 
 szMsg20.1: .asciz "20. Converting string to lowercase:\n" @output for prompt #20
 
@@ -563,8 +558,8 @@ end12:
 	ldr	r0, =szMsg14.1	@load into r0 address of szMsg14.1
 	bl	putstring	@call putstring (external fn) to print szMsg14.1
 
-	ldr r0, =szMsg14.2 	@Load into r0 address of szMsg14.2
-	bl	putstring	@call putstring (external fn) to print szMsg14.2
+	ldr r0, =szMsg13.2 	@Load into r0 address of szMsg13.2
+	bl	putstring	@call putstring (external fn) to print szMsg13.2
 
 	mov r2, #9	@move our index specifier into r2 for the functions
 	mov r1, #103 @move 'g' into r0 for the functions
@@ -590,8 +585,8 @@ end12:
 	ldr	r0, =szMsg15.1	@load into r0 address of szMsg15.1
 	bl	putstring	@call putstring (external fn) to print szMsg15.1
 
-	ldr r0, =szMsg15.3 	@Load into r0 address of szMsg15.2
-	bl	putstring	@call putstring (external fn) to print szMsg15.2
+	ldr r0, =szMsg13.2 	@Load into r0 address of szMsg13.2
+	bl	putstring	@call putstring (external fn) to print szMsg13.2
 
 	mov r0, r7	@move our input to r0 for functions
 	ldr r1, =szMsg15.2 @load our test case into r1 for functions
@@ -608,6 +603,90 @@ end12:
 
 	ldr	r0, =crCr	@load into r0 address of crCr
 	bl	putch		@call putstring (external fn) to print the character 'carriage return'
+
+	@*********************************@
+	@	  PROMPT NUMBER 16        @
+	@*********************************@
+
+	ldr	r0, =szMsg16.1	@load into r0 address of szMsg16.1
+	bl	putstring	@call putstring (external fn) to print szMsg16.1
+
+	ldr r0, =szMsg13.2 	@Load into r0 address of szMsg13.2
+	bl	putstring	@call putstring (external fn) to print szMsg13.2
+
+	mov r1, #103 @move 'g' into r0 for the functions
+	mov r0, r7 @move string 2 into r0 for functions
+
+	bl	String_lastIndexOf_1	@call external function to find last index of g
+
+	ldr	r1, =szEmp	@load empty string to call intasc32
+	bl	intasc32	@convert index to strings
+	mov r0, r1	@move converted string to r0 for display
+	bl	putstring	@call putstring (external fn) to print output of external functions
+
+	ldr	r0, =crCr	@load into r0 address of crCr
+	bl	putch		@call putstring (external fn) to print the character 'carriage return
+
+	ldr	r0, =crCr	@load into r0 address of crCr
+	bl	putch		@call putstring (external fn) to print the character 'carriage return'
+
+	@*********************************@
+	@	  PROMPT NUMBER 17        @
+	@*********************************@
+
+	ldr	r0, =szMsg17.1	@load into r0 address of szMsg14.1
+	bl	putstring	@call putstring (external fn) to print szMsg14.1
+
+	ldr r0, =szMsg13.2 	@Load into r0 address of szMsg13.2
+	bl	putstring	@call putstring (external fn) to print szMsg13.2
+
+	mov r2, #6	@move our index specifier into r2 for the functions
+	mov r1, #103 @move 'g' into r0 for the functions
+	mov r0, r7 @move string 2 into r0 for functions
+
+	bl String_lastIndexOf_2	@call external function to find the index of g after index 9
+
+	ldr	r1, =szEmp	@load empty string to call intasc32
+	bl	intasc32	@convert index to strings
+	mov r0, r1	@move converted string to r0 for display
+	bl	putstring	@call putstring (external fn) to print the function output
+
+	ldr	r0, =crCr	@load into r0 address of crCr
+	bl	putch		@call putstring (external fn) to print the character 'carriage return
+
+	ldr	r0, =crCr	@load into r0 address of crCr
+	bl	putch		@call putstring (external fn) to print the character 'carriage return'
+
+	@*********************************@
+	@	  PROMPT NUMBER 18        @
+	@*********************************@
+
+	ldr	r0, =szMsg18.1	@load into r0 address of szMsg15.1
+	bl	putstring	@call putstring (external fn) to print szMsg15.1
+
+	ldr r0, =szMsg13.2 	@Load into r0 address of szMsg13.2
+	bl	putstring	@call putstring (external fn) to print szMsg13.2
+
+	mov r0, r7	@move our input to r0 for functions
+	ldr r1, =szMsg15.2 @load our test case into r1 for functions
+
+	bl	String_lastIndexOf_3	@use external function to find the index of eggs
+
+	ldr	r1, =szEmp	@load empty string to call intasc32
+	bl	intasc32	@convert index to strings
+	mov r0, r1	@move converted string to r0 for display
+	bl	putstring	@call putstring (external fn) to print the function output
+
+	ldr	r0, =crCr	@load into r0 address of crCr
+	bl	putch		@call putstring (external fn) to print the character 'carriage return
+
+	ldr	r0, =crCr	@load into r0 address of crCr
+	bl	putch		@call putstring (external fn) to print the character 'carriage return'
+
+	@*********************************@
+	@	  PROMPT NUMBER 19        @
+	@*********************************@
+
 
 	mov 	r0, #0 		@ set exit status to 0
 	mov 	r7, #1		@ service command code to 1
