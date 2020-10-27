@@ -566,7 +566,7 @@ end12:
 	ldr r0, =szMsg14.2 	@Load into r0 address of szMsg14.2
 	bl	putstring	@call putstring (external fn) to print szMsg14.2
 
-	mov r2, 9	@move our index specifier into r2 for the functions
+	mov r2, #9	@move our index specifier into r2 for the functions
 	mov r1, #103 @move 'g' into r0 for the functions
 	mov r0, r7 @move string 2 into r0 for functions
 
@@ -583,7 +583,7 @@ end12:
 	@*********************************@
 	@	  PROMPT NUMBER 15        @
 	@*********************************@
-	
+
 	mov 	r0, #0 		@ set exit status to 0
 	mov 	r7, #1		@ service command code to 1
 
