@@ -15,9 +15,9 @@ szTop: 	.asciz 	"Group: Rasm 16|Andrew Barth-Yi|Alex Au|\nClass: CS 3B\nLab: RAS
 szEmp:	.skip 512																							@ empty string for output
 	.text			
 
-	.global _start			@ Provide program starting address to linker
+	.global main			@ Provide program starting address to linker
 
-_start:
+main:
 
 	ldr 	r0, =szTop		@ load title card
 	bl 		putstring		@ display title card
