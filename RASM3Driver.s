@@ -5,7 +5,7 @@
 @Lab:     RASM3
 @Date:    October 23, 2020
 @Purpose:
-@	Demonstrate external string manipulation functions 
+@	Demonstrate external string manipulation functions
 @*****************************************************************************
 
 .equ 	KBSIZE, 512 	@ Keyboard input size max
@@ -22,9 +22,9 @@ char:	.byte	0		@ character storage
 
 true:	.asciz	"TRUE"		@string for true
 false:	.asciz	"FALSE"		@string for false
-test:	.asciz	"TRUE"		@fix for prompt 10	
+test:	.asciz	"TRUE"		@fix for prompt 10
 
-szTop: 	.asciz 	"Group: Rasm 16|Andrew Barth-Yi|Alex Au|\nClass: CS 3B\nLab: RASM3\nDate: 10/23/2020\n\n"	@ title card	
+szTop: 	.asciz 	"Group: Rasm 16|Andrew Barth-Yi|Alex Au|\nClass: CS 3B\nLab: RASM3\nDate: 10/23/2020\n\n"	@ title card
 szEmp:	.skip 512
 szMsgS: .asciz	"                " @16 byte string for intasc
 
@@ -97,7 +97,7 @@ szMsg22.1: .asciz "22. Concatonating string with \" \" and previous output:" @ou
 
 crCr: .byte 10			@byte nuber for carrage return
 																			@ empty string for output
-	.text			
+	.text
 
 	.global main		@ Provide program starting address to linker
 
@@ -139,7 +139,7 @@ main:
 	@new line
 	ldr	r0, =crCr	@load into r0 address of crCr
 	bl	putch		@call putstring (external fn) to print the character 'carriage return'
-	
+
 @*********************************@
 @	  PROMPT NUMBER 1         	  @
 @*********************************@
@@ -190,12 +190,12 @@ main:
 
 	@new line
 	ldr	r0, =crCr	@load into r0 address of crCr
-	bl	putch		@call putstring (external fn) to print the character 'carriage return'	
+	bl	putch		@call putstring (external fn) to print the character 'carriage return'
 
 	@new line
 	ldr	r0, =crCr	@load into r0 address of crCr
 	bl	putch		@call putstring (external fn) to print the character 'carriage return'
-	
+
 @*********************************@
 @	  PROMPT NUMBER 2         @
 @*********************************@
@@ -207,7 +207,7 @@ main:
 	mov	r1, r8		@moving string 3 into r1
 
 	bl 	String_equals	@call string equals function to compare r0, r1
-	
+
 	cmp	r0, #0		@comparing the output
 	beq	false2		@if 0 then branch to false
 
@@ -221,7 +221,7 @@ false2:
 end2:
 	@new line
 	ldr	r0, =crCr	@load into r0 address of crCr
-	bl	putch		@call putstring (external fn) to print the character 'carriage return'	
+	bl	putch		@call putstring (external fn) to print the character 'carriage return'
 
 	@new line
 	ldr	r0, =crCr	@load into r0 address of crCr
@@ -229,8 +229,8 @@ end2:
 
 @*********************************@
 @	  PROMPT NUMBER 3         @
-@*********************************@	
-	
+@*********************************@
+
 	ldr	r0, =szMsg3.1	@load into r0 address of szMsg3.1
 	bl	putstring	@call putstring (external fn) to print szMsg3.1
 
@@ -238,7 +238,7 @@ end2:
 	mov	r1, r6		@moving string 1 into r1
 
 	bl 	String_equals	@call string equals function to compare r0, r1
-	
+
 	cmp	r0, #0		@comparing the output
 	beq	false3		@if 0 then branch to false
 
@@ -252,7 +252,7 @@ false3:
 end3:
 	@new line
 	ldr	r0, =crCr	@load into r0 address of crCr
-	bl	putch		@call putstring (external fn) to print the character 'carriage return'	
+	bl	putch		@call putstring (external fn) to print the character 'carriage return'
 
 	@new line
 	ldr	r0, =crCr	@load into r0 address of crCr
@@ -269,7 +269,7 @@ end3:
 	mov	r1, r8		@moving string 3 into r1
 
 	bl 	String_equalsIgnoreCase		@call string equals function to compare r0, r1
-	
+
 	cmp	r0, #0		@comparing the output
 	beq	false4		@if 0 then branch to false
 
@@ -283,7 +283,7 @@ false4:
 end4:
 	@new line
 	ldr	r0, =crCr	@load into r0 address of crCr
-	bl	putch		@call putstring (external fn) to print the character 'carriage return'	
+	bl	putch		@call putstring (external fn) to print the character 'carriage return'
 
 	@new line
 	ldr	r0, =crCr	@load into r0 address of crCr
@@ -300,7 +300,7 @@ end4:
 	mov	r1, r7		@moving string 2 into r1
 
 	bl 	String_equalsIgnoreCase		@call string equals function to compare r0, r1
-	
+
 	cmp	r0, #0		@comparing the output
 	beq	false5		@if 0 then branch to false
 
@@ -314,7 +314,7 @@ false5:
 end5:
 	@new line
 	ldr	r0, =crCr	@load into r0 address of crCr
-	bl	putch		@call putstring (external fn) to print the character 'carriage return'	
+	bl	putch		@call putstring (external fn) to print the character 'carriage return'
 
 	@new line
 	ldr	r0, =crCr	@load into r0 address of crCr
@@ -353,7 +353,7 @@ end5:
 
 	@new line
 	ldr	r0, =crCr	@load into r0 address of crCr
-	bl	putch		@call putstring (external fn) to print the character 'carriage return'	
+	bl	putch		@call putstring (external fn) to print the character 'carriage return'
 
 	@new line
 	ldr	r0, =crCr	@load into r0 address of crCr
@@ -375,10 +375,10 @@ end5:
 	bl	String_substring_1 @creates a new string consisting of the substring indexes
 
 	bl	putstring	@outputs the string in r0
-	
+
 	@new line
 	ldr	r0, =crCr	@load into r0 address of crCr
-	bl	putch		@call putstring (external fn) to print the character 'carriage return'	
+	bl	putch		@call putstring (external fn) to print the character 'carriage return'
 
 	@new line
 	ldr	r0, =crCr	@load into r0 address of crCr
@@ -387,7 +387,7 @@ end5:
 @*********************************@
 @	  PROMPT NUMBER 8         @
 @*********************************@
-	
+
 	ldr	r0, =szMsg8.1	@load into r0 address of szMsg8.1
 	bl	putstring	@call putstring (external fn) to print szMsg8.1
 
@@ -402,7 +402,7 @@ end5:
 
 	@new line
 	ldr	r0, =crCr	@load into r0 address of crCr
-	bl	putch		@call putstring (external fn) to print the character 'carriage return'	
+	bl	putch		@call putstring (external fn) to print the character 'carriage return'
 
 	@new line
 	ldr	r0, =crCr	@load into r0 address of crCr
@@ -430,7 +430,7 @@ end5:
 
 	@new line
 	ldr	r0, =crCr	@load into r0 address of crCr
-	bl	putch		@call putstring (external fn) to print the character 'carriage return'	
+	bl	putch		@call putstring (external fn) to print the character 'carriage return'
 
 	@new line
 	ldr	r0, =crCr	@load into r0 address of crCr
@@ -453,7 +453,7 @@ end5:
 	bl	String_startsWith_1	@calling to check if the string starts with the substring
 	cmp	r0, #0		@comparing the output
 	beq	false10		@if 0 then branch to false
-	
+
 	ldr	r0, =test	@load into r0 address of true
 	bl	putstring	@call putstring (external fn) to print true
 	b	end10
@@ -464,7 +464,7 @@ false10:
 end10:
 	@new line
 	ldr	r0, =crCr	@load into r0 address of crCr
-	bl	putch		@call putstring (external fn) to print the character 'carriage return'	
+	bl	putch		@call putstring (external fn) to print the character 'carriage return'
 
 	@new line
 	ldr	r0, =crCr	@load into r0 address of crCr
@@ -483,7 +483,7 @@ end10:
 
 	cmp	r0, #0		@comparing the output
 	beq	false11		@if 0 then branch to false
-	
+
 	ldr	r0, =test	@load into r0 address of true
 	bl	putstring	@call putstring (external fn) to print true
 	b	end11
@@ -494,7 +494,7 @@ false11:
 end11:
 	@new line
 	ldr	r0, =crCr	@load into r0 address of crCr
-	bl	putch		@call putstring (external fn) to print the character 'carriage return'	
+	bl	putch		@call putstring (external fn) to print the character 'carriage return'
 
 	@new line
 	ldr	r0, =crCr	@load into r0 address of crCr
@@ -513,7 +513,7 @@ end11:
 
 	cmp	r0, #0		@comparing the output
 	beq	false12		@if 0 then branch to false
-	
+
 	ldr	r0, =test	@load into r0 address of true
 	bl	putstring	@call putstring (external fn) to print true
 	b	end12
@@ -524,17 +524,66 @@ false12:
 end12:
 	@new line
 	ldr	r0, =crCr	@load into r0 address of crCr
-	bl	putch		@call putstring (external fn) to print the character 'carriage return'	
+	bl	putch		@call putstring (external fn) to print the character 'carriage return'
 
 	@new line
 	ldr	r0, =crCr	@load into r0 address of crCr
 	bl	putch		@call putstring (external fn) to print the character 'carriage return'
 
+	@*********************************@
+	@	  PROMPT NUMBER 13        @
+	@*********************************@
+
+	ldr	r0, =szMsg13.1	@load into r0 address of szMsg13.1
+	bl	putstring	@call putstring (external fn) to print szMsg13.1
+
+	ldr r0, =szMsg13.2 	@Load into r0 address of szMsg13.2
+	bl	putstring	@call putstring (external fn) to print szMsg13.2
+
+	mov r1, #103 @move 'g' into r0 for the functions
+	mov r0, r7 @move string 2 into r0 for functions
+
+	bl	String_indexOf	@call external function to
+
+	ldr	r1, =szEmp	@load empty string to call intasc32
+	bl	intasc32	@convert index to strings
+	mov r0, r1	@move converted string to r0 for display
+	bl	putstring	@call putstring (external fn) to print output of external functions
+
+	ldr	r0, =crCr	@load into r0 address of crCr
+	bl	putch		@call putstring (external fn) to print the character 'carriage return
+
+	ldr	r0, =crCr	@load into r0 address of crCr
+	bl	putch		@call putstring (external fn) to print the character 'carriage return'
+
+	@*********************************@
+	@	  PROMPT NUMBER 14        @
+	@*********************************@
+
+	ldr	r0, =szMsg14.1	@load into r0 address of szMsg14.1
+	bl	putstring	@call putstring (external fn) to print szMsg14.1
+
+	ldr r0, =szMsg14.2 	@Load into r0 address of szMsg14.2
+	bl	putstring	@call putstring (external fn) to print szMsg14.2
+
+	mov r2, 9	@move our index specifier into r2 for the functions
+	mov r1, #103 @move 'g' into r0 for the functions
+	mov r0, r7 @move string 2 into r0 for functions
+
+	ldr	r1, =szEmp	@load empty string to call intasc32
+	bl	intasc32	@convert index to strings
+	mov r0, r1	@move converted string to r0 for display
+	bl String_indexOf_2	@call external function to find the index of g after index 9
+	ldr	r0, =crCr	@load into r0 address of crCr
+	bl	putch		@call putstring (external fn) to print the character 'carriage return
+
+	ldr	r0, =crCr	@load into r0 address of crCr
+	bl	putch		@call putstring (external fn) to print the character 'carriage return'
+
+	@*********************************@
+	@	  PROMPT NUMBER 15        @
+	@*********************************@
 	
-	
-
-
-
 	mov 	r0, #0 		@ set exit status to 0
 	mov 	r7, #1		@ service command code to 1
 
