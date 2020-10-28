@@ -18,8 +18,6 @@ String_charAt:
 
 	bl	String_Length	@call string length
 	mov	r2, r0		@stores the length of the string into r2
-	
-	sub	r5, #1		@decriments the index
 
 	cmp	r2, r5		@compares the given index to the string length
 	blt	zero		@if the given index is larger than the string length, branch

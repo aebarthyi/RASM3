@@ -24,8 +24,7 @@ String_substring_1:
 	bl	malloc			@creating a new string using malloc
 	pop	{r1-r8, r10, r11}	@preserve registers
 
-	sub	r1, #2		@offsetting beginning index by 1
-	sub	r2, #1		@offsetting ending index by 1
+	sub	r1, #1		@offsetting beginning index by 1
 	mov	r5, #0		@set counter to 0
 
 copy:

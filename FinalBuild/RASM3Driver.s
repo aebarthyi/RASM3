@@ -58,7 +58,7 @@ szMsg9.1: .asciz "9. Calling string char at for string 2\n"	@output for prompt #
 szMsg9.2: .asciz "   The character at index 4: "		@output for prompt #9
 
 szMsg10.1: .asciz "10. Calling Starts with to check string 1\n" @output for prompt #10
-szMsg10.2: .asciz "    Checking 'hat.' at index 12: "		@output for prompt #10
+szMsg10.2: .asciz "    Checking 'hat.' at index 11: "		@output for prompt #10
 szMsg10.3: .asciz "hat."			    @the string to check for prompt #10
 
 szMsg11.1: .asciz "11. Checking if string 1 starts with 'Cat': " @output for prompt #11
@@ -444,7 +444,7 @@ end5:
 
 	ldr	r0, =szMsg10.3 	@load the string to check into r0
 	mov 	r1, r6		@loading the first string into r1
-	mov	r2, #12		@setting the begining index to 12
+	mov	r2, #11		@setting the begining index to 11
 
 	bl	String_startsWith_1	@calling to check if the string starts with the substring
 	cmp	r0, #0		@comparing the output

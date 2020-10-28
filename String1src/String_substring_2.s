@@ -26,7 +26,7 @@ String_substring_2:
 	bl	malloc			@calling malloc to create a new substring	
 	pop	{r1-r8, r10, r11}	@preserve registers
 
-	sub	r7, #2		@offsetting 2 from the begining counter
+	sub	r7, #1		@offsetting 1 from the begining counter
 	mov	r5, #0		@set counter to 0
 
 copy:
