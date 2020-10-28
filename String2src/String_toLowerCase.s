@@ -24,15 +24,15 @@ loop:
 	cmp 	r6, #0			@ check if we are done copying string
 	beq		end				@ jump to end if we are done copying
 	ldrb	r0, [r5], #1 	@ load byte of string, increment
-	cmp  	r0, #32		@check space delimination
-	streqb r0, [r3], #1
-	subeq r6, 1
-	beq		loop
-	cmp   r0, 97
-	addlt	r0, #32
+	cmp  	r0, #65		@check if below the alphabet
+	strltb r0, [r3], #1	@store character if found outside of bounds
+	sublt r6, #1		@decrement our counter
+	blt		loop	@jump back to loop if found outside of bounds
+	cmp   r0, #97		@check if in bounds
+	addlt	r0, #32		@if in bounds add 32 to make it lowercase
 	strb	r0, [r3], #1			@ store the character back to the string
 	sub		r6, #1			@ decrement length
-	b			loop
+	b			loop		@ branch back to loop
 
 end:
 	mov 	r0, r4			@ move address to r0 for return

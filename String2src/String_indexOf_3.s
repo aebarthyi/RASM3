@@ -39,12 +39,12 @@ firstFound:
     cmp     r5, #0              @ check if second string is over
     beq     exit                @ if second string finished then exit
     cmp     r3, r5              @ check if character found matches
-    addne   r2, #1              @ increment original string pointer for next loop iteration
+    addne   r6, #1              @ increment original string pointer for next loop iteration
     bne     loop                @ go back to loop if not found
     b       firstFound          @ back to firstFound loop
     
 exit:
-    mov     r0, r2               @ move counter to r0
+    mov     r0, r6               @ move counter to r0
     
     pop	{sp}                    @ pop stack pointer
     pop	{r4-r8, r10, r11}       @ pop the preserved regiesters for aapcs
