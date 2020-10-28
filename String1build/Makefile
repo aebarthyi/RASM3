@@ -1,0 +1,2 @@
+all: String_charAt.o String_copy.o String_endsWith.o String_equals.o String_equalsIgnoreCase.o String_startsWith_1.o String_startsWith_2.o String_substring_1.o String_substring_2.o
+	ar rcs String1.a String_charAt.o String_copy.o String_endsWith.o String_equals.o String_equalsIgnoreCase.o String_startsWith_1.o String_startsWith_2.o String_substring_1.o String_substring_2.o
