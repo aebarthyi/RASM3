@@ -13,8 +13,6 @@ String_startsWith_1:
 	push	{r4-r8, r10, r11} 	@preserve registers
 	push	{sp}			@preserve stack pointer
 	push	{lr}			@preserve the link register for recursion
-	
-	sub	r2, r2, #1	@offsetting the begining index by 1
 
 	mov	r4, r0		@preserving the substring to call String_length
 	mov	r5, r1		@preserving the string to call String_length
