@@ -88,7 +88,7 @@ szMsg20.1: .asciz "20. Converting string to lowercase:\n" @output for prompt #20
 
 szMsg21.1: .asciz "21. Converting string to uppercase:\n" @output for prompt #21
 
-szMsg22.1: .asciz "22. Concatonating string with \" \" and previous output:" @output for prompt #22
+szMsg22.1: .asciz "22. Concatonating string with \" \" and previous output:\n" @output for prompt #22
 szMsg22.2: .asciz " " @space string for prompt #22
 
 crCr: .byte 10			@byte nuber for carrage return
@@ -645,7 +645,7 @@ end12:
 	mov r1, #103 @move 'g' into r0 for the functions
 	mov r0, r7 @move string 2 into r0 for functions
 
-	bl String_lastIndexOf_2	@call external function to find the index of g after index 9
+	bl String_lastIndexOf_2	@call external function to find the index of g after index 6
 
 	ldr	r1, =szEmp	@load empty string to call intasc32
 	bl	intasc32	@convert index to strings
@@ -698,7 +698,7 @@ end12:
 	mov r1, #97	@move ascii value for a into r1 to be replaced
 	mov r2, #111 @move ascii value for o into r2 to replace a
 
-	bl	String_replace	@use external function to find the index of eggs
+	bl	String_replace	@use external function to replace certain characters in a string with other character
 
 	bl	putstring	@call putstring (external fn) to print the function output
 
@@ -720,7 +720,7 @@ end12:
 
 	mov r0, r6	@move our input to r0 for functions
 
-	bl	String_toLowerCase	@use external function to find the index of eggs
+	bl	String_toLowerCase	@use external function to convert to lowercase
 
 	bl	putstring	@call putstring (external fn) to print the function output
 
@@ -742,7 +742,7 @@ end12:
 
 	mov r0, r6	@move our input to r0 for functions
 
-	bl	String_toUpperCase	@use external function to find the index of eggs
+	bl	String_toUpperCase	@use external function to convert to uppercase
 	mov r8, r0 @store uppercase conversion for prompt #22
 	bl	putstring	@call putstring (external fn) to print the function output
 
@@ -762,14 +762,14 @@ end12:
 	ldr r0, =szMsg19.2 	@Load into r0 address of szMsg13.2
 	bl	putstring	@call putstring (external fn) to print szMsg13.2
 
-	mov r0, r6	@move our input to r0 for functions
+	mov r1, r8 @move prompt 21 output into r1 for Concatonating
 	ldr r1, =szMsg22.2 @load the space string
 
-	bl	String_concat	@use external function to find the index of eggs
+	bl	String_concat @use external function to concatonate strings
 
-	mov r1, r8 @move prompt 21 output into r1 for Concatonating
+	mov r1, r7	@move second string to be concatonated into r1
 
-	bl String_concat
+	bl String_concat @use external function to concatonate strings
 
 	bl	putstring	@call putstring (external fn) to print the function output
 
