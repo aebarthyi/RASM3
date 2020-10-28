@@ -762,7 +762,7 @@ end12:
 	ldr r0, =szMsg19.2 	@Load into r0 address of szMsg13.2
 	bl	putstring	@call putstring (external fn) to print szMsg13.2
 
-	mov r1, r8 @move prompt 21 output into r1 for Concatonating
+	mov r0, r8 @move prompt 21 output into r1 for Concatonating
 	ldr r1, =szMsg22.2 @load the space string
 
 	bl	String_concat @use external function to concatonate strings
