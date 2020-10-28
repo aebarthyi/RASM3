@@ -25,12 +25,21 @@ loop:
 	beq		end				@ jump to end if we are done copying
 	ldrb	r0, [r5], #1 	@ load byte of string, increment
 	cmp		r0, #97			@ check character to lowercase a
-	cmplt r0, #65
-	addgt	r0, #32			@ add 32 to make character lowercase if found to be uppercase
-	strb	r0, [r3], #1	@ store the character back to the string
+	blt		lower				@ branch to lower if found to be uppercase
 	sub		r6, #1			@ decrement length
-	b		loop
+	b			loop
 
+lower:
+	cmp			r0, #65						@ check if within alphabet bounds
+	bgt			inBounds					@ if within bounds go to inBounds loop
+	strltb	r0, [r3], #1			@ store the character back to the string
+	b 			loop							@ branch back to loop
+
+inBounds:
+	add 		r0, #32						@add 32 to byte, making it lowercase
+	strltb	r0, [r3], #1			@ store the character back to the string
+	b				loop							@ branch back to loop
+	
 end:
 	mov 	r0, r4			@ move address to r0 for return
 
