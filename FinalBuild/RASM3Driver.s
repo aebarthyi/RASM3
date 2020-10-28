@@ -89,6 +89,7 @@ szMsg20.1: .asciz "20. Converting string to lowercase:\n" @output for prompt #20
 szMsg21.1: .asciz "21. Converting string to uppercase:\n" @output for prompt #21
 
 szMsg22.1: .asciz "22. Concatonating string with \" \" and previous output:" @output for prompt #22
+szMsg22.2: .asciz " " @space string for prompt #22
 
 crCr: .byte 10			@byte nuber for carrage return
 																			@ empty string for output
@@ -687,6 +688,98 @@ end12:
 	@	  PROMPT NUMBER 19        @
 	@*********************************@
 
+	ldr	r0, =szMsg19.1	@load into r0 address of szMsg15.1
+	bl	putstring	@call putstring (external fn) to print szMsg15.1
+
+	ldr r0, =szMsg19.2 	@Load into r0 address of szMsg13.2
+	bl	putstring	@call putstring (external fn) to print szMsg13.2
+
+	mov r0, r6	@move our input to r0 for functions
+	mov r1, #97	@move ascii value for a into r1 to be replaced
+	mov r2, #111 @move ascii value for o into r2 to replace a
+
+	bl	String_replace	@use external function to find the index of eggs
+
+	bl	putstring	@call putstring (external fn) to print the function output
+
+	ldr	r0, =crCr	@load into r0 address of crCr
+	bl	putch		@call putstring (external fn) to print the character 'carriage return
+
+	ldr	r0, =crCr	@load into r0 address of crCr
+	bl	putch		@call putstring (external fn) to print the character 'carriage return'
+
+	@*********************************@
+	@	  PROMPT NUMBER 20        @
+	@*********************************@
+
+	ldr	r0, =szMsg20.1	@load into r0 address of szMsg15.1
+	bl	putstring	@call putstring (external fn) to print szMsg15.1
+
+	ldr r0, =szMsg19.2 	@Load into r0 address of szMsg13.2
+	bl	putstring	@call putstring (external fn) to print szMsg13.2
+
+	mov r0, r6	@move our input to r0 for functions
+
+	bl	String_toLowerCase	@use external function to find the index of eggs
+
+	bl	putstring	@call putstring (external fn) to print the function output
+
+	ldr	r0, =crCr	@load into r0 address of crCr
+	bl	putch		@call putstring (external fn) to print the character 'carriage return
+
+	ldr	r0, =crCr	@load into r0 address of crCr
+	bl	putch		@call putstring (external fn) to print the character 'carriage return'
+
+	@*********************************@
+	@	  PROMPT NUMBER 21        @
+	@*********************************@
+
+	ldr	r0, =szMsg21.1	@load into r0 address of szMsg15.1
+	bl	putstring	@call putstring (external fn) to print szMsg15.1
+
+	ldr r0, =szMsg19.2 	@Load into r0 address of szMsg13.2
+	bl	putstring	@call putstring (external fn) to print szMsg13.2
+
+	mov r0, r6	@move our input to r0 for functions
+
+	bl	String_toUpperCase	@use external function to find the index of eggs
+	mov r8, r0 @store uppercase conversion for prompt #22
+	bl	putstring	@call putstring (external fn) to print the function output
+
+	ldr	r0, =crCr	@load into r0 address of crCr
+	bl	putch		@call putstring (external fn) to print the character 'carriage return
+
+	ldr	r0, =crCr	@load into r0 address of crCr
+	bl	putch		@call putstring (external fn) to print the character 'carriage return'
+
+	@*********************************@
+	@	  PROMPT NUMBER 22        @
+	@*********************************@
+
+	ldr	r0, =szMsg22.1	@load into r0 address of szMsg15.1
+	bl	putstring	@call putstring (external fn) to print szMsg15.1
+
+	ldr r0, =szMsg19.2 	@Load into r0 address of szMsg13.2
+	bl	putstring	@call putstring (external fn) to print szMsg13.2
+
+	mov r0, r6	@move our input to r0 for functions
+	ldr r1, =szMsg22.2 @load the space string
+
+	bl	String_concat	@use external function to find the index of eggs
+
+	mov r1, r8 @move prompt 21 output into r1 for Concatonating
+
+	bl String_concat
+
+	bl	putstring	@call putstring (external fn) to print the function output
+
+	ldr	r0, =crCr	@load into r0 address of crCr
+	bl	putch		@call putstring (external fn) to print the character 'carriage return
+
+	ldr	r0, =crCr	@load into r0 address of crCr
+	bl	putch		@call putstring (external fn) to print the character 'carriage return'
+
+	@--------------------------------------------------------
 
 	mov 	r0, #0 		@ set exit status to 0
 	mov 	r7, #1		@ service command code to 1
